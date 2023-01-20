@@ -163,7 +163,7 @@ arc GLOBAL10 inhibitor UD2closed D2open 1,
 arc GLOBAL11 input discrete UD2closed D2closed 1,
 arc GLOBAL12 output discrete D2closed UD2closed 1,
 arc GLOBAL13 inhibitor UL1off L1 1,
-arc GLOBAL14 inhibitor UL2off L1 1,
+arc GLOBAL14 inhibitor UL2off L2 1,
 arc GLOBAL15 inhibitor UW1off W1 1,
 arc GLOBAL16 inhibitor UW2off W2 1,
 arc GLOBAL17 inhibitor UW3off W3 1,
@@ -342,13 +342,13 @@ measure comfort mean(temproom1)
 }
 
 property {
-real SimulationTime 10000,
+real SimulationTime 1000,
 real SimulationStep 0.1,
 integer SimulationCycles 1,
 real SampleStart 0.0,
 real Confidence 0.1,
 real SampleStep 0.1,
-real SampleEnd 10000,
+real SampleEnd 1000,
 string billFile "energy.out",
 string comfortFile "temperature.out"
 }
