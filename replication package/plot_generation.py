@@ -87,7 +87,8 @@ if __name__ == '__main__':
     isTimePresent = False
     for filename in glob.glob('./*.out'):
         with open(os.path.join(os.getcwd(), filename), 'r') as f:
-            tagName = filename.split('\\')[-1].split('.')[0]
+            print(filename)
+            tagName = filename.split('/')[-1].split('.')[0]
             timeTS, minTS, maxTS = getTS(f)
             if not isTimePresent:
                 data['Time'] = timeTS

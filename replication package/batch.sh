@@ -1,4 +1,12 @@
-./Sim_new ./full.fspn
-./Sim_new ./partial.fspn
-curl -d "Simulation finished" ntfy.sh/yKwVr50vYRTqRhZC8197ryuBWcWpO9
-mv *.out /mnt/c/Users/stefa/PycharmProjects/jaise_postprocessor
+#!/bin/bash
+
+./Sim_new full_summer.fspn > /dev/null
+./Sim_new full_winter.fspn > /dev/null
+./Sim_new partial_summer.fspn > /dev/null
+./Sim_new partial_winter.fspn > /dev/null
+./Sim_new sensitivity_1.fspn > /dev/null
+./Sim_new sensitivity_2.fspn > /dev/null
+./Sim_new sensitivity_3.fspn > /dev/null
+./Sim_new sensitivity_4.fspn > /dev/null
+
+python3 plot_generation.py
