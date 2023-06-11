@@ -59,6 +59,20 @@ def visualize(dictionary):
             ('energysensitivity_2', '#2 users'),
             ('energysensitivity_3', '#3 users'),
             ('energysensitivity_4', '#4 users')
+        ),
+        (
+            ('Consumed Energy', 'JAISE22_casestudy_sensitivity_threshold_energy.pdf'),
+            'Time',
+            ('energythreshold_4', '4 C°'),
+            ('energythreshold_6', '6 C°'),
+            ('energythreshold_8', '8 C°')
+        ),
+        (
+            ('Room1 Temperature', 'JAISE22_casestudy_sensitivity_threshold_temperature.pdf'),
+            'Time',
+            ('temperaturethreshold_4', '4 C°'),
+            ('temperaturethreshold_6', '6 C°'),
+            ('temperaturethreshold_8', '8 C°')
         )
     ]
     for e in experiments:
@@ -79,15 +93,12 @@ def execution():
     for item in test:
         if item.endswith(".out"):
             os.remove(os.path.join('./', item))
-    #os.system('untitled.exe full.fspn')
-    #os.system('untitled.exe partial.fspn')
 
 if __name__ == '__main__':
     data = dict()
     isTimePresent = False
     for filename in glob.glob('./*.out'):
         with open(os.path.join(os.getcwd(), filename), 'r') as f:
-            print(filename)
             tagName = filename.split('/')[-1].split('.')[0]
             timeTS, minTS, maxTS = getTS(f)
             if not isTimePresent:
